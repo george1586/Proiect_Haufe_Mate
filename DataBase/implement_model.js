@@ -10,8 +10,9 @@ Subchapter.belongsTo(Chapter, { foreignKey: 'chapterId', as: 'chapter' });
 
 sequelize.sync({ force: true })
   .then(() => {
-    console.log('✅ Database & tables created!');
+    console.log('Tables Created and Updated');
   })
   .catch((error) => {
-    console.error('❌ Error creating database & tables:', error);
+    console.error('error creating tables:', error);
+    
   });
