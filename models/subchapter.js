@@ -47,6 +47,5 @@ module.exports = (sequelize) => {
             as: 'chapter' 
         });
     };
-
     return Subchapter;
 }
