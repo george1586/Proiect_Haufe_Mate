@@ -1,11 +1,9 @@
 import {Sequelize} from 'sequelize';
 import config from '../config/config.json' assert { type: 'json' };
-import ChapterModel from '../models/chapter.js';
-import SubchapterModel from '../models/subchapter.js';
+import Chapter from '../models/chapter.js';
+import Subchapter from '../models/subchapter.js';
+import sequelize from '../config/database.js';
 
-const sequelize = new Sequelize(config['development']);
-const Chapter = ChapterModel(sequelize);
-const Subchapter = SubchapterModel(sequelize);
 
 Chapter.hasMany(Subchapter, { foreignKey: 'chapterId', as: 'subchapters' });
 Subchapter.belongsTo(Chapter, { foreignKey: 'chapterId', as: 'chapter' });

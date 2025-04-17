@@ -1,7 +1,6 @@
 import { DataTypes } from 'sequelize';
-import { v4 as uuidv4 } from 'uuid';
+import sequelize from '../config/database.js'; 
 
-const ChapterModel = (sequelize) => {
     const Chapter = sequelize.define('Chapter', {
         id: {
             type: DataTypes.UUID,
@@ -21,7 +20,4 @@ const ChapterModel = (sequelize) => {
         tableName: 'chapter',
     });
 
-    return Chapter;
-};
-
-export default ChapterModel;
+    export default Chapter;

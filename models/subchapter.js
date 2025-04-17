@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { v4 as uuidv4 } from 'uuid';
+import sequelize from '../config/database.js';
 
-const SubchapterModel = (sequelize) => {
     const Subchapter = sequelize.define('subchapters', {
         id: {
             type: DataTypes.UUID,
@@ -41,12 +41,4 @@ const SubchapterModel = (sequelize) => {
         tableName: 'subchapters',
     });
 
-    Subchapter.associate = (models) => {
-        Subchapter.belongsTo(models.chapter, { 
-            foreignKey: 'chapterId',
-            as: 'chapter' 
-        });
-    };
-    return Subchapter;
-}
-export default SubchapterModel;
+export default Subchapter;
