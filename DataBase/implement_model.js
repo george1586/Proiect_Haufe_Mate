@@ -10,7 +10,7 @@ const Subchapter = SubchapterModel(sequelize);
 Chapter.hasMany(Subchapter, { foreignKey: 'chapterId', as: 'subchapters' });
 Subchapter.belongsTo(Chapter, { foreignKey: 'chapterId', as: 'chapter' });
 
-sequelize.sync({ force: true })
+sequelize.sync()
   .then(() => {
     console.log('Tables Created and Updated');
   })
