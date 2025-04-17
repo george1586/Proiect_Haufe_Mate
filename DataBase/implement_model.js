@@ -1,9 +1,11 @@
-const { Sequelize } = require('sequelize');
-const config = require('../config/config.json');
-const sequelize = new Sequelize(config['development']);
+import {Sequelize} from 'sequelize';
+import config from '../config/config.json' assert { type: 'json' };
+import ChapterModel from '../models/chapter.js';
+import SubchapterModel from '../models/subchapter.js';
 
-const Chapter = require('../models/chapter')(sequelize);
-const Subchapter = require('../models/subchapter')(sequelize);
+const sequelize = new Sequelize(config['development']);
+const Chapter = ChapterModel(sequelize);
+const Subchapter = SubchapterModel(sequelize);
 
 Chapter.hasMany(Subchapter, { foreignKey: 'chapterId', as: 'subchapters' });
 Subchapter.belongsTo(Chapter, { foreignKey: 'chapterId', as: 'chapter' });
@@ -15,3 +17,5 @@ sequelize.sync({ force: true })
   .catch((error) => {
     console.error('error creating tables:', error);
   });
+
+  export { sequelize, Chapter, Subchapter };

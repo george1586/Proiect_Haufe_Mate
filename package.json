@@ -8,11 +8,14 @@
     "update": "nodemon DataBase/implement_model.js",
     "seed": "npx sequelize-cli db:seed:all"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.8.4",
+    "body-parser": "^2.2.0",
     "express": "^5.1.0",
     "nodemon": "^3.1.9",
     "sequelize": "^6.37.7",

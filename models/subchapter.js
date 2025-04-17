@@ -1,7 +1,7 @@
-const DataTypes = require('sequelize');
-const { v4: uuivd4 } = require('uuid');
+import { DataTypes } from 'sequelize';
+import { v4 as uuidv4 } from 'uuid';
 
-module.exports = (sequelize) => {
+const SubchapterModel = (sequelize) => {
     const Subchapter = sequelize.define('subchapters', {
         id: {
             type: DataTypes.UUID,
@@ -49,3 +49,4 @@ module.exports = (sequelize) => {
     };
     return Subchapter;
 }
+export default SubchapterModel;

@@ -1,7 +1,7 @@
-const { DataTypes } = require('sequelize');
-const { v4: uuidv4 } = require('uuid');
+import { DataTypes } from 'sequelize';
+import { v4 as uuidv4 } from 'uuid';
 
-module.exports = (sequelize) => {
+const ChapterModel = (sequelize) => {
     const Chapter = sequelize.define('Chapter', {
         id: {
             type: DataTypes.UUID,
@@ -21,12 +21,7 @@ module.exports = (sequelize) => {
         tableName: 'chapter',
     });
 
-    Chapter.associate = (models) => {
-        Chapter.hasMany(models.Subchapter, { 
-            foreignKey: 'chapterId',
-            as: 'subchapters' 
-        });
-    };
-
     return Chapter;
 };
+
+export default ChapterModel;
