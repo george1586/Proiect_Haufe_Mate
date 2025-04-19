@@ -5,7 +5,7 @@ import sequelize from '../config/database.js';
     const Subchapter = sequelize.define('subchapters', {
         id: {
             type: DataTypes.UUID,
-            defaultValue: () => uuivd4(),
+            defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
         title: {
@@ -17,7 +17,7 @@ import sequelize from '../config/database.js';
             allowNull: false,
         },
         chapterId: {
-            type: DataTypes.UUIDV4,
+            type: DataTypes.UUID,
             allowNull: false,
             references: {
                 model: 'chapter',

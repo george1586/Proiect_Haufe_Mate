@@ -13,7 +13,7 @@ import sequelize from '../config/database.js';
         },
         content: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
         }
     }, {
         timestamps: true,
