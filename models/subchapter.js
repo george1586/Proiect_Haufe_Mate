@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import { v4 as uuidv4 } from 'uuid';
 import sequelize from '../config/database.js';
 
-    const Subchapter = sequelize.define('subchapters', {
+const Subchapter = sequelize.define('subchapters', {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -22,7 +22,7 @@ import sequelize from '../config/database.js';
             references: {
                 model: 'chapter',
                 key: 'id',
-            },
+            }
         },
         imageUrls: {
             type: DataTypes.TEXT,

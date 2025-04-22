@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js'; 
 
-    const Chapter = sequelize.define('Chapter', {
+const Chapter = sequelize.define('Chapter', {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -20,4 +20,4 @@ import sequelize from '../config/database.js';
         tableName: 'chapter',
     });
 
-    export default Chapter;
+export default Chapter;
