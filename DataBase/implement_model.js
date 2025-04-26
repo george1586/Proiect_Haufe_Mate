@@ -13,7 +13,7 @@ User.belongsToMany(Role, { through: userRole, foreignKey: 'userId'});
 Role.belongsToMany(User, { through: userRole, foreignKey:'roleId'});
 
 
-sequelize.sync({alter:true})
+sequelize.sync()
   .then(() => {
   })
   .catch((error) => {

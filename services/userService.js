@@ -25,6 +25,23 @@ export const createUser = async(userData) =>{
     }
 }
 
+export const updateRole = async (id, order) => {
+    try{
+        const user = await User.findByPk(id);
+        const adminRole = await Role.findOne({where:{name:'admin'}});
+        if(order === 'remove'){
+            await user.removeRole(adminRole);
+            return user;
+        }
+        await user.addRole(adminRole);
+        return user;
+    }
+    catch(error){
+        console.error('error:',error);
+        throw error;
+    }
+}
+
 export const deleteUser = async(id) => {
     try{
         const deletedUser = await User.destroy( {where:{id}} );

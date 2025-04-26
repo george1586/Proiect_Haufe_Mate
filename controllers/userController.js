@@ -1,4 +1,4 @@
-import { getAllUsers, getUserById, createUser, updateUser, deleteUser } from "../services/userService.js";
+import { getAllUsers, getUserById, createUser, updateUser, deleteUser, updateRole } from "../services/userService.js";
 
 export const getAllUsersController = async(req,res) => {
     try{
@@ -7,6 +7,19 @@ export const getAllUsersController = async(req,res) => {
     }
     catch(error){
         console.error("Error",error);
+        res.status(501).json({message: 'Internal server error'});
+    }
+}
+
+export const updateRoleController = async(req,res) => {
+    try{
+        const {id} =req.params;
+        const order = req.body.order;
+        const user = await updateRole(id, order);
+        res.status(200).json(user);
+    }
+    catch(error){
+        console.error('Error',error);
         res.status(501).json({message: 'Internal server error'});
     }
 }
